@@ -1,19 +1,19 @@
 
-fn kurikaeshi(v: Vec<i32>) {
-    for i in &v {
+fn kurikaeshi(v: &Vec<i32>) {
+    for i in v {
         print!("{} ", i);
     }
     println!("");
 }
 
-fn kurikaeshi_iter(v: Vec<i32>) {
+fn kurikaeshi_iter(v: &Vec<i32>) {
     for i in v.iter() {
         print!("{} ", i);
     }
     println!("");
 }
 
-fn kurikaeshi_iter_with_idx(v: Vec<i32>) {
+fn kurikaeshi_iter_with_idx(v: &Vec<i32>) {
     for (i, x) in v.iter().enumerate() {
         print!("{}:{} ", i, x);
     }
@@ -39,10 +39,8 @@ fn main() {
     condition(10, 20);
     condition(20, 10);
     condition(10, 10);
-    let v1 = vec![10,20, 30];
-    kurikaeshi(v1);
-    let v2 = vec![10,20, 30];
-    kurikaeshi_iter(v2);
-    let v3 = vec![10,20, 30];
-    kurikaeshi_iter_with_idx(v3);
+    let v = vec![10,20, 30];
+    kurikaeshi(&v);
+    kurikaeshi_iter(&v);
+    kurikaeshi_iter_with_idx(&v);
 }
