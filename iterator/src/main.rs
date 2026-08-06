@@ -45,7 +45,15 @@ fn count_test() {
 }
 
 fn any_test(v: Vec<i32>) -> bool {
+    /* 一つでも条件を満たす他所があればtrue */
     v.iter().any(|&x| x % 2 == 0)
+}
+
+fn enumerate_test() {
+    let v = vec!["A", "B", "C"];
+    for (i, value) in v.iter().enumerate() {
+        println!("{}: {}", i, value);
+    }
 }
 
 fn main() {
@@ -59,4 +67,6 @@ fn main() {
     count_test();
     println!("{}", any_test(vec![1, 2, 3, 4]));
     println!("{}", any_test(vec![1, 3, 5, 7]));
+    println!("{}", any_test(vec![2, 3, 7, 7, 9]));
+    enumerate_test();
 }
