@@ -56,6 +56,10 @@ fn enumerate_test() {
     }
 }
 
+fn find_test(v: &[i32]) -> Option<i32> {
+    v.iter().find(|&&x| x % 2 == 0).copied()
+}
+
 fn main() {
     println!("Hello, world!");
     map_test();
@@ -69,4 +73,5 @@ fn main() {
     println!("{}", any_test(vec![1, 3, 5, 7]));
     println!("{}", any_test(vec![2, 3, 7, 7, 9]));
     enumerate_test();
+    find_test(&[1, 2, 3, 4]).map_or_else(|| println!("Not found"), |x| println!("{}", x));
 }
